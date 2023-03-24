@@ -17,16 +17,18 @@ export const ServerList = () => {
             key={server.prefix}
             className="flex flex-wrap justify-between p-3 hover:bg-neutral-700 rounded-lg cursor-pointer"
           >
-            <div className="flex gap-3 p-2">
-              <img src={server.url} alt="sv-image" className="w-20 h-20" />
-              <div className="w-2/3 flex-wrap">
-                <div className="">{server.prefix}</div>
-                <div className="">
+            <div className="grid grid-cols-8">
+            <div className="grid grid-cols-7 sm:col-span-7 col-span-full">
+              <div className="sm:col-span-1 col-span-full"><img src={server.url} alt="sv-image"/></div>
+              <div className="grid sm:col-span-6 col-span-full grid-rows-3 p-3">
+                <div className="row-span-2 place-items-center">{server.prefix}</div>
+                <div className="row-span-1 bg-black">
                   {server.region} - {server.currentMap} - {server.mode}
                 </div>
               </div>
             </div>
-            <div className="">{server.serverInfo}</div>
+            <div className="sm:col-span-1 justify-self-end col-span-full">{server.serverInfo}</div>
+            </div>
           </div>
           // <div
           //   key={server.prefix}
