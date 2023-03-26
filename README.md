@@ -1,6 +1,6 @@
 ** IMPORTANTE: Instalar dependencias => npm i **
 
-1.- git clone https://github.com/HowLonely/bf-server-tracker.git
+1.- git clone https://github.com/HowLonely/bf-server-tracker.git \n
 2.- git init
 3.- git pull origin <branch (master)>
 
