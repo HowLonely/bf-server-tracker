@@ -13,6 +13,7 @@ export const useFetch = (url) => {
     cuando sea interrumpida no llegue al sv
     (ahorrar recursos de red) */
     setLoading(true);
+    console.log("fetching data")
 
     fetch(url, { signal: abortController.signal })
       .then((res) => res.json())

@@ -1,16 +1,20 @@
 import { useContext } from "react";
-import { UrlContext } from "../../../../context/Servers/ServerContext";
+import { ServersContext } from "../../../../context/Servers/ServersContext";
 
 export const Searchbox = () => {
-  const { setPlatform } = useContext(UrlContext);
+  const { setPlatform, setLimit } = useContext(ServersContext);
 
   const handlePlatformChange = (e) => {
     setPlatform(e.target.value);
   };
 
+  const handleLimitChange = (e) => {
+    setLimit(e.target.value);
+  };
+
   return (
-    <form className="flex flex-wrap justify-center bg-neutral-800 rounded-xl p-4 gap-10">
-      <div className="space-y-3">
+    <div className="bg-neutral-800 rounded-lg p-5 flex flex-wrap gap-6 justify-center">
+      <div className="grid gap-2">
         <div>Plataforma</div>
         <select
           name="platform"
@@ -22,13 +26,21 @@ export const Searchbox = () => {
           <option value="xboxone">Xbox One</option>
         </select>
       </div>
-      <div className="space-y-3">
-        <h2>Nombre</h2>
-        <input name="name" type="text" className="rounded-md bg-neutral-600" />
+      <div className="grid gap-2 place-items-center">
+        <div>Mostrar</div>
+        <select
+          name="limit"
+          id="server-limit"
+          className="bg-neutral-600 rounded-md p-0.5"
+          onChange={handleLimitChange}
+        >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="40">50</option>
+          <option value="80">100</option>
+        </select>
       </div>
-      <div className="flex items-center">
-        <button className="bg-neutral-600 px-3 rounded-md h-10">Buscar</button>
-      </div>
-    </form>
+    </div>
   );
 };
