@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 
 import { useFetch } from "../../hooks/useFetch";
 
@@ -26,6 +26,7 @@ export const ServersProvider = ({ children }) => {
         url,
         setPlatform,
         setLimit,
+        platform,
         data,
         loading,
       }}
