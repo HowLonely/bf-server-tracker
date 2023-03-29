@@ -24,5 +24,5 @@ export const useFetch = (url) => {
     pantalla */
   }, [url]);
 
-  return { data, loading, error };
+  return { data, loading, error, setData }; //setData exportado para el searchbox (test)
 };

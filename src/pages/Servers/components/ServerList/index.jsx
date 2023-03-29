@@ -11,7 +11,7 @@ export const ServerList = () => {
       ) : (
         data?.servers.map((server) => (
           <div
-            key={server.prefix}
+            key={server.gameId}
             className="flex flex-wrap justify-between p-3 hover:bg-neutral-700 rounded-lg cursor-pointer"
           >
             <div className="grid grid-cols-8">

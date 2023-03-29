@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { ServersContext } from "../../../../context/Servers/ServersContext";
 
+
 export const FilterBox = () => {
-  const { setPlatform, setLimit } = useContext(ServersContext);
+
+  const { setLimit, setPlatform } = useContext(ServersContext);
 
   const handlePlatformChange = (e) => {
     setPlatform(e.target.value);
