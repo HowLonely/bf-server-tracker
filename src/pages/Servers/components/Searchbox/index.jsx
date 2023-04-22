@@ -7,10 +7,10 @@ export const Searchbox = () => {
   const handleInputOnChange = (e) => {
     setName(e.target.value);
   };
-  const handleInputOnSelect = (e) => {
+  const handleInputOnSelect = () => {
     setSelected(true);
   };
-  const handleInputOnBlur = (e) => {
+  const handleInputOnBlur = () => {
     setSelected(false);
   };
 

@@ -1,19 +1,13 @@
 import { useContext } from "react";
-import { ServerSearchContext, ServerSearchProvider } from "../../../../context/ServerSearch/ServerSearchContext";
+import { ServerSearchContext } from "../../../../context/ServerSearch/ServerSearchContext";
 
 export const SearchedItems = () => {
-  const { data, loading, selected } = useContext(ServerSearchContext);
+  const { data, loading, selected, name } = useContext(ServerSearchContext);
 
   if (loading) return <div>Loading ...</div>;
-  if (!selected) return <div></div>
-  
-  return (
-    <div>
-      {data ? data.servers.map((data) => (
-        <div key={data.gameId}>
-          {data.prefix}
-        </div>
-      ) ): <div>No matches</div> }
-    </div>
-  );
-}
+  if (!selected) return <div></div>;
+  if (!name) return <div></div>;
+  if (data.servers.length == 0 && !loading) return <div>No matches</div>;
+
+  return <div>{data.servers.map((server) => server.prefix)}</div>;
+};

@@ -12,21 +12,19 @@ export const ServerSearchProvider = ({ children }) => {
   const [selected, setSelected] = useState(null); //Verifica que el input esté seleccionado
 
   //Retorna 5 items filtrados
-  const { data, loading, setData } = useFetch(url);
+  const { data, loading } = useFetch(url);
 
   useEffect(() => {
-    data?.servers.map((server) => console.log(server.prefix));
-    if (selected && name !== "") {
+    if (selected && name) {
       setUrl(
         `https://api.gametools.network/bf1/servers/?name=${name}&region=all&platform=${platform}&limit=${limit}&lang=en-us`
       );
-    } else {
     }
   }, [name, selected]);
 
   return (
     <ServerSearchContext.Provider
-      value={{ data, loading, setName, selected, setSelected }}
+      value={{ data, loading, setName, selected, setSelected, name }}
     >
       {children}
     </ServerSearchContext.Provider>
